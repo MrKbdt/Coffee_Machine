@@ -1,0 +1,110 @@
+package machine;
+
+public class CoffeeMachine {
+    public static void main(String[] args) {
+        System.out.println("Starting to make a coffee\n" +
+                "Grinding coffee beans\n" +
+                "Boiling water\n" +
+                "Mixing boiled water with crushed coffee beans\n" +
+                "Pouring coffee into the cup\n" +
+                "Pouring some milk into the cup\n" +
+                "Coffee is ready!");
+    }
+}
+
+
+*************************************************
+
+
+package machine;
+
+import java.util.Scanner;
+
+public class CoffeeMachine {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Write how many cups of coffee you will need:\n> ");
+        int cupsNeeded = scanner.nextInt();
+
+        System.out.println("For " + cupsNeeded + " cups of coffee you will need:\n" +
+                calcWater(cupsNeeded) + " ml of water\n" +
+                calcMilk(cupsNeeded) + " ml of milk\n" +
+                calcCoffee(cupsNeeded) + " g of coffee beans\n");
+
+    }
+
+    public static int calcWater(int cupsNeeded){
+        return cupsNeeded * 200;
+    }
+
+    public static int calcMilk(int cupsNeeded){
+        return cupsNeeded * 50;
+    }
+
+    public static int calcCoffee(int cupsNeeded){
+        return cupsNeeded * 15;
+    }
+
+
+}
+
+###########################################################
+###########################################################
+###########################################################
+
+*********************************************************************
+package machine;
+
+import java.util.Scanner;
+
+public class CoffeeMachine {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        int currentWater, currentMilk, currentBeans, maxCups, maxCupsWater, maxCupsMilk, maxCupsBeans;
+
+        System.out.print("Write how many ml of water the coffee machine has:\n> ");
+        currentWater = scanner.nextInt();
+        maxCupsWater = currentWater / 200;
+
+        System.out.print("Write how many ml of milk the coffee machine has:\n> ");
+        currentMilk = scanner.nextInt();
+        maxCupsMilk = currentMilk / 50;
+
+        System.out.print("Write how many grams of coffee beans the coffee machine has:\n> ");
+        currentBeans = scanner.nextInt();
+        maxCupsBeans = currentBeans / 15;
+
+        maxCups = maxCupsWater;
+        if (maxCupsMilk < maxCups) {
+            maxCups = maxCupsMilk;
+        }
+        if (maxCupsBeans < maxCups) {
+            maxCups = maxCupsBeans;
+        }
+
+        System.out.print("Write how many cups of coffee you will need:\n ");
+        int cupsNeeded = scanner.nextInt();
+
+        if (maxCups == cupsNeeded) {
+            System.out.println("Yes, I can make that amount of coffee");
+        } else if (maxCups > cupsNeeded) {
+            System.out.println("Yes, I can make that amount of coffee (and even " + (maxCups - cupsNeeded) + " more than that)");
+        } else if (maxCups < cupsNeeded) {
+            System.out.println("No, I can make only " + maxCups  + " cup(s) of coffee");
+        }
+
+    }
+}
+
+
+
+
+
+
+
+
+*********************************************************************
